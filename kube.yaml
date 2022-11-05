@@ -18,7 +18,7 @@ spec:
       - name: nginx
         image: narasimha8780/jenkinstest
         ports:
-        - containerPort: 8001
+        - containerPort: 80
         imagePullPolicy: Always
 ---
 apiVersion: v1
