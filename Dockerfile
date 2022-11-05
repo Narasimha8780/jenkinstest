@@ -8,6 +8,6 @@ COPY docker-compose.yaml docker-compose.yaml
 RUN pip install -r requirements.txt
 EXPOSE 5000
 COPY . .
-RUN apt install docker-compose
+RUN apt install docker-compose -y
 RUN docker-compose up -d
 CMD ["flask", "run"]
