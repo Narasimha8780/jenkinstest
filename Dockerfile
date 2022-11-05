@@ -1,8 +1,13 @@
 FROM nginx:latest 
-MAINTAINER mavrick202@gmail.com 
+RUN apt install python
+WORKDIR /code
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+RUN apk add --no-cache gcc musl-dev linux-headers
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+EXPOSE 5000
+COPY . .
 RUN apt install -y curl
 COPY index.html /usr/share/nginx/html/
-COPY scorekeeper.js /usr/share/nginx/html/
-COPY style.css /usr/share/nginx/html/
-#HEALTHCHECK CMD curl --fail http://localhost || exit 1
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;","flask","run"]
