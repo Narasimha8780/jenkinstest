@@ -3,14 +3,14 @@ pipeline {
       stages {
         stage('Clone Repo') {
           steps {
-            sh 'rm -rf shanmukhashan022'
+            sh 'rm -rf jenkinstest'
             sh 'git clone https://github.com/shanmukhashan022/shanmukhashan022.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-              sh 'docker build -t shanmukhashan022/new_jenkins1:latest .'
+              sh 'docker build -t narasimha8780/jenkinstest:latest .'
               }
         }
         stage('Push Docker image') {
@@ -19,7 +19,7 @@ pipeline {
             }
             steps {
                 sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
-                sh    'docker push shanmukhashan022/new_jenkins1:latest'
+                sh    'docker push narasimha8780/jenkinstest:latest'
             }
         }
           
