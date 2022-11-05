@@ -4,7 +4,7 @@ pipeline {
         stage('Clone Repo') {
           steps {
             sh 'rm -rf jenkinstest'
-            sh 'git clone https://github.com/shanmukhashan022/shanmukhashan022.git'
+            sh 'git clone https://github.com/Narasimha8780/jenkinstest.git'
             }
         }
 
@@ -33,7 +33,7 @@ pipeline {
         stage('Check WebApp Rechability') {
           steps {
           sh 'sleep 10s'
-          sh ' curl http://3.108.67.219:30007'
+          sh ' curl http://43.205.94.145:30007'
           }
         }
         
