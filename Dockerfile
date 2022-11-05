@@ -1,5 +1,5 @@
 FROM nginx:latest 
-RUN apt install python
+RUN apt install python -y
 WORKDIR /code
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
