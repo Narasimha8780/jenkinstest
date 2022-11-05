@@ -1,5 +1,4 @@
-FROM nginx:latest 
-RUN apt install python -y
+FROM python:3.7-alpine
 WORKDIR /code
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
@@ -8,6 +7,6 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 EXPOSE 5000
 COPY . .
-RUN apt install -y curl
-COPY index.html /usr/share/nginx/html/
-CMD ["nginx", "-g", "daemon off;","flask","run"]
+RUN apt install docker-compose
+RUN docker-compose up -d
+CMD ["flask", "run"]
